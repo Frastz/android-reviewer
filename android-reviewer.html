@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Android Midterm Reviewer</title>
+<style>
+:root{--bg:#fff;--fg:#1c2340;--mu:#667;--cd:#f3f4f9;--ac:#2d3a8c;--ok:#1b7f3b;--no:#b3261e;--bd:#d5d8e6;box-sizing:border-box;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14172b;--fg:#e8eaf6;--mu:#9aa;--cd:#1f2340;--ac:#8c9cff;--ok:#5fd187;--no:#ff8a80;--bd:#33385c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}
+main{max-width:720px;margin:auto;padding:16px}h1{font-size:1.3rem;margin:.2em 0}
+.bar{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+button{font:inherit;border:1px solid var(--bd);background:var(--cd);color:var(--fg);padding:8px 12px;border-radius:8px;cursor:pointer}
+button.on{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:12px 0}
+.q{font-size:1.1rem;font-weight:600}.o{display:block;width:100%;text-align:left;margin:8px 0}
+.ok{border-color:var(--ok)!important;color:var(--ok)}.no{border-color:var(--no)!important;color:var(--no)}
+.mu{color:var(--mu);font-size:.9rem}code,input{font-family:ui-monospace,monospace}
+input{background:var(--bg);color:var(--fg);border:1px solid var(--bd);border-radius:6px;padding:3px 6px;width:11em}
+.fc{min-height:140px;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer}
+.scroll{overflow-x:auto}li{margin:4px 0}
+</style></head><body><main>
+<h1>Android Bootcamp Midterm Reviewer</h1><div class="mu">Hoisington, Android Bootcamp (Java, 4e): Chapters 1 to 4</div>
+<div class="bar" id="tabs"></div><div class="bar" id="chs"></div><div id="v"></div></main>
+<script>
+const D=[
+[1,"Two primary mobile operating systems?","iOS and Android"],
+[1,"Business alliance formed in 2007 to set mobile device standards?","Open Handset Alliance"],
+[1,"Android is what kind of platform?","Open source"],
+[1,"Tool that duplicates how an app looks and feels on a device?","Emulator"],
+[1,"What can the emulator NOT do?","Place phone calls"],
+[1,"Feature that saves battery because white space uses more power?","Dark mode"],
+[1,"IDE used to build Android apps (includes the SDK)?","Android Studio"],
+[1,"Language used to lay out the UI in this course?","XML"],
+[1,"Language Google recommends for new projects (course uses Java)?","Kotlin"],
+[1,"Where are apps sold and deployed?","Google Play"],
+[1,"Format apps are published to Google Play in?","Android App Bundle (.aab)"],
+[1,"One-time Google Play registration fee?","$25"],
+[1,"Folder holding AndroidManifest.xml?","manifests"],
+[1,"Folder holding Java source files?","java"],
+[1,"Folder holding images, layouts and activity_main.xml?","res"],
+[1,"A container that holds widgets?","Layout"],
+[1,"A single UI element such as a Button?","Widget"],
+[1,"A characteristic describing what an object can do?","Attribute"],
+[1,"Component Tree lists widgets in what order?","The order they were placed"],
+[1,"Good practice for every component so Java code can reach it?","Add an id attribute"],
+[1,"Emulator configuration used for design preview?","Android Virtual Device (AVD)"],
+[1,"Which minimum SDK should you target?","Lowest version that still supports your core features"],
+[1,"App that connects an Android phone to a Windows 11 PC?","Phone Link"],
+[1,"Button that stops the running emulator?","Terminate"],
+[2,"The 4 steps to create any Android app?","UI (XML) per screen, Activity class per screen, code objects/actions, test in emulator"],
+[2,"Another name for strings.xml?","String table"],
+[2,"Using the String table to change text by user language?","Localization"],
+[2,"In a string resource, the key is...","The name (id) of the component"],
+[2,"Layout giving flexible positioning and responsive design?","ConstraintLayout"],
+[2,"Minimum constraints per component?","Two (one vertical, one horizontal)"],
+[2,"What happens to an unconstrained component at runtime?","It floats to the top of the screen"],
+[2,"White vs blue constraint handle?","White = not aligned, Blue = aligned"],
+[2,"Preferred textSize unit, and why?","sp, it scales with the user font preference"],
+[2,"Folder where ImageView images must be placed?","res/drawable"],
+[2,"Component used to show a photo or logo?","ImageView"],
+[2,"Attribute that a screen reader reads for an image?","contentDescription"],
+[2,"Four Android button types?","Button, FloatingActionButton, ToggleButton, ImageButton"],
+[2,"Attribute that sets a button background color?","backgroundTint"],
+[2,"Development life cycle in order?","Requirements, UI design, processing objects, code, test"],
+[2,"An Activity is...","A screen made of XML plus a Java class"],
+[2,"A class vs an object?","Class = blueprint, object = instance of it"],
+[2,"Naming convention for Java class names?","Pascal case"],
+[2,"File listing activities and permissions?","AndroidManifest.xml"],
+[2,"Entry point method that initializes an Activity?","onCreate()"],
+[2,"Return type of onCreate()?","void"],
+[2,"Code that displays a screen layout?","setContentView(R.layout.activity_main);"],
+[2,"A part of a program that responds to a tap?","Event handler"],
+[2,"Method that detects a button tap?","setOnClickListener / OnClickListener"],
+[2,"Code that opens another Activity?","startActivity(new Intent(MainActivity.this, Recipe.class));"],
+[2,"Method that finds a widget from the layout?","findViewById()"],
+[3,"Where should multiple related text strings be stored?","A string array in strings.xml"],
+[3,"One entry inside a string array?","item"],
+[3,"Default screen background color?","White"],
+[3,"Gray watermark text inside a text box?","Hint"],
+[3,"Attribute that changes the hint color?","textColorHint"],
+[3,"Component that works like a drop-down list?","Spinner"],
+[3,"Spinner attribute that connects the string array?","entries"],
+[3,"Attribute that sets dialog or drop-down mode?","spinnerMode"],
+[3,"Spinner prompt is stored in strings.xml under the name...","prompt"],
+[3,"Keyword that allows a variable to be set only once?","final"],
+[3,"Number of Java primitive types?","Eight"],
+[3,"Most common whole number type vs decimal type?","int and double"],
+[3,"String is a...","Class, not a primitive type"],
+[3,"Default value of a boolean?","false"],
+[3,"Method that reads text from an EditText?","getText()"],
+[3,"Convert a String to an int?","Integer.parseInt()"],
+[3,"Convert a String to a double?","Double.parseDouble()"],
+[3,"Method that returns the Spinner selection?","getSelectedItem()"],
+[3,"Method that displays text in a TextView?","setText()"],
+[3,"Operator that joins strings?","+ (concatenation)"],
+[3,"Class that formats numbers for output?","DecimalFormat"],
+[3,"Operator % means...","Remainder"],
+[3,"Order of operations?","Parentheses; ++ --; * / %; + - (left to right)"],
+[3,"Prefix used when naming a TextView id?","tv"],
+[4,"Formulas: pounds to kg, kg to pounds?","kg = lb / 2.2, lb = kg * 2.2"],
+[4,"Name of an app opening icon?","Launcher icon"],
+[4,"Tool that generates launcher icons from an image?","Image Asset Studio"],
+[4,"Launcher icon naming convention and format?","ic_launcher, .png"],
+[4,"Folder where launcher icons are stored?","res/mipmap"],
+[4,"Google Play high-res icon size?","512 x 512 pixels"],
+[4,"xxxhdpi icon size?","192 x 192 px"],
+[4,"Code to show the logo in the Action bar?","setDisplayShowHomeEnabled(true); setLogo(R.mipmap.ic_launcher); setDisplayUseLogoEnabled(true);"],
+[4,"Container that allows only one RadioButton selected?","RadioGroup"],
+[4,"Prefix for a RadioButton id?","rb"],
+[4,"#FF0000 is...","Hexadecimal color code for true red"],
+[4,"Settings used to change alignment of a component?","Gravity"],
+[4,"Attribute that sets spacing around each side?","layout:margin"],
+[4,"Attribute used to center the hint text?","foregroundGravity (center_horizontal)"],
+[4,"Spacing unit used instead of eyeballing?","dp (density-independent pixels)"],
+[4,"Statement that runs code for true OR false results?","If Else"],
+[4,"Method to compare Strings for equality?","equals()"],
+[4,"Three logical operators?","&& (and), || (or), ! (not)"],
+[4,"Checking input before it is used?","Data validation"],
+[4,"If inside another If is called...","Nested"],
+[4,"Message that slides into view unobtrusively?","Toast notification"],
+[4,"Toast.makeText takes which 3 parameters?","context, message text, duration"],
+[4,"Toast duration constants?","LENGTH_SHORT or LENGTH_LONG"],
+[4,"Method that tells if a RadioButton is selected?","isChecked()"],
+[4,"Medical Calculator weight limits?","500 pounds / 225 kilograms"],
+[4,"DecimalFormat pattern that rounds to the nearest tenth?","#.#"]];
+const L=[
+["final EditText tickets = (EditText)","findViewById","(R.id.tvTickets);"],
+["final Spinner group = (Spinner)findViewById(R.id.","spGroup",");"],
+["cost.","setOnClickListener","(new View.OnClickListener() {"],
+["numberOfTickets = Integer.","parseInt","(tickets.getText().toString());"],
+["weightEntered = Double.","parseDouble","(weight.getText().toString());"],
+["groupChoice = group.","getSelectedItem","().toString();"],
+["totalCost = costPerTicket ","*","numberOfTickets;"],
+["DecimalFormat currency = new DecimalFormat(\"","$###,###.##","\");"],
+["result.","setText","(\"Cost for \" + groupChoice + \" is \" + currency.format(totalCost));"],
+["setContentView(R.layout.","activity_main",");"],
+["getSupportActionBar().","setLogo","(R.mipmap.ic_launcher);"],
+["if (lbToKilo.","isChecked","()) {"],
+["convertedWeight = weightEntered ","/","conversionRate;"],
+["DecimalFormat tenth = new DecimalFormat(\"","#.#","\");"],
+["Toast.makeText(MainActivity.this, \"Pounds must be less than 500\", Toast.","LENGTH_LONG",").show();"],
+["startActivity(new Intent(MainActivity.this, ","Recipe",".class));"]];
+let ch=0,mode='quiz',deck=[],i=0,sc=0,done=0,flip=0;
+const $=id=>document.getElementById(id),sh=a=>a.map(x=>[Math.random(),x]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+const pool=()=>D.filter(d=>!ch||d[0]==ch);
+function start(){const p=pool(),all=[...new Set(p.map(x=>x[2]))];deck=sh(p).map(d=>({d,o:sh([d[2],...sh(all.filter(x=>x!=d[2])).slice(0,3)])}));i=0;sc=0;done=0;flip=0;render()}
+function nav(){$('tabs').innerHTML=[['quiz','Quiz'],['cards','Flashcards'],['lab','Lab code']].map(t=>`<button class="${mode==t[0]?'on':''}" onclick="mode='${t[0]}';start()">${t[1]}</button>`).join('');
+$('chs').innerHTML=mode=='lab'?'':[[0,'All'],[1,'Ch 1'],[2,'Ch 2'],[3,'Ch 3'],[4,'Ch 4']].map(c=>`<button class="${ch==c[0]?'on':''}" onclick="ch=${c[0]};start()">${c[1]}</button>`).join('')}
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function render(){nav();const v=$('v');
+if(mode=='lab')return lab(v);
+if(i>=deck.length){v.innerHTML=`<div class="card"><div class="q">Done! ${mode=='quiz'?'Score: '+sc+' / '+deck.length:'All cards cleared'}</div><p><button onclick="start()">Restart</button></p></div>`;return}
+const x=deck[i];
+if(mode=='quiz'){v.innerHTML=`<div class="mu">Question ${i+1} of ${deck.length} · Score ${sc}</div><div class="card"><div class="q">${esc(x.d[1])}</div>${x.o.map((o,k)=>`<button class="o" onclick="pick(${k})">${esc(o)}</button>`).join('')}<div id="fb"></div></div>`}
+else{v.innerHTML=`<div class="mu">Card ${i+1} of ${deck.length} · Ch ${x.d[0]}</div><div class="card fc" onclick="flip=!flip;render()"><div class="${flip?'':'q'}">${esc(flip?x.d[2]:x.d[1])}</div></div><div class="bar"><button onclick="flip=!flip;render()">Flip</button>${flip?`<button onclick="nxt(1)">Got it</button><button onclick="nxt(0)">Again</button>`:''}</div>`}}
+function pick(k){if(done)return;done=1;const x=deck[i],b=document.querySelectorAll('.o');b.forEach((e,j)=>{if(x.o[j]==x.d[2])e.classList.add('ok');else if(j==k)e.classList.add('no')});if(x.o[k]==x.d[2])sc++;$('fb').innerHTML='<p><button onclick="i++;done=0;render()">Next</button></p>'}
+function nxt(g){if(!g)deck.push(deck[i]);i++;flip=0;render()}
+function lab(v){v.innerHTML=`<p class="mu">Fill in the blank in each line of code from the lab apps (case matters).</p><div class="card scroll">${L.map((l,k)=>`<div style="margin:10px 0"><code>${esc(l[0])}<input id="i${k}" autocomplete="off" autocapitalize="off" spellcheck="false">${esc(l[2])}</code> <span id="r${k}"></span></div>`).join('')}<button onclick="chk()">Check all</button></div>
+<div class="card"><b>Lab checklist</b><ol><li><b>Ch1</b> Hello World, My Name: new Empty Activity project, edit TextView text, set id, run on emulator.</li><li><b>Ch2</b> Easy Recipes: ConstraintLayout, strings.xml, ImageView (res/drawable + contentDescription), Button, second Activity (Recipe), onClick with startActivity.</li><li><b>Ch3</b> Concert Tickets: orange #FF9800 background, Number input with hint, Spinner with string array + prompt, Button, TextView result, parseInt, getSelectedItem, DecimalFormat, setText.</li><li><b>Ch4</b> Medical Calculator: launcher icon via Image Asset Studio, Action bar logo, RadioGroup with 2 RadioButtons, nested If Else with isChecked, Toast validation, DecimalFormat "#.#".</li></ol></div>`}
+function chk(){let n=0;L.forEach((l,k)=>{const ok=$('i'+k).value.trim()==l[1];n+=ok;$('r'+k).innerHTML=ok?'<b class="ok">✓</b>':'<b class="no">✗ '+esc(l[1])+'</b>'});alert(n+' / '+L.length+' correct')}
+start();
+</script></body></html>
